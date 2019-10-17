@@ -1,0 +1,27 @@
+.navbar{
+    font-family: 'Montserrat', sans-serif;
+}
+
+#backButton{
+    font-size: 1.5em;
+    color: rgb(159, 143, 245);
+}
+
+#nameShort{
+    display: none;
+}
+
+@media (max-width: 767px){
+    #nameLong{
+        display: none;
+    }
+
+    #nameShort{
+        display: inline;
+    }
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/GoogleFonts/Montserrat/Montserrat-Regular.ttf);
+}

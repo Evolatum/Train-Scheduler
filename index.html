@@ -21,7 +21,7 @@
                             <tr>
                                 <th scope="col">Train Name</th>
                                 <th scope="col">Destination</th>
-                                <th scope="col">Frequency (min)</th>
+                                <th scope="col">Frequency</th>
                                 <th scope="col">Next Arrival</th>
                                 <th scope="col">Minutes Away</th>
                             </tr>
@@ -54,6 +54,26 @@
                         </div>
                         <button type="submit" class="btn btn-primary" id="addTrain">Submit</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error adding train modal -->
+    <div class="modal fade" id="errorTrain" tabindex="-1" role="dialog" aria-labelledby="errorTrain" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Error adding train</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    New train needs a name and destination, as well as a valid time and frequency...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
                 </div>
             </div>
         </div>

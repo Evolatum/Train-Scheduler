@@ -5,7 +5,7 @@ $("body").prepend(`
         Back to portfolio
     </a>
     <span class="navbar-text" id="nameLong">
-        Santiago Martinez Vara Ortiz - 01/10/19
+        Santiago Martinez Vara Ortiz - xx/xx/19
     </span>
     <span class="navbar-text" id="nameShort">
         SMVO - 2019

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Train Scheduler</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e6f9ccef12.js" crossorigin="anonymous"></script>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/navbar.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    
+    <div class="container-fluid main">
+        <div class="row">
+            <div class="col-8">
+                <div class="jumbotron">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Train Name</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Frequency (min)</th>
+                                <th scope="col">Next Arrival</th>
+                                <th scope="col">Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trainsHere">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="jumbotron">
+                    <form>
+                        <h4>Add Train</h4>
+                        <div class="form-group">
+                            <label for="addName">Train Name</label>
+                            <input type="text" class="form-control" id="addName" placeholder="Blue Express">
+                        </div>
+                        <div class="form-group">
+                            <label for="addDestination">Destination</label>
+                            <input type="text" class="form-control" id="addDestination" placeholder="Cherryshire">
+                        </div>
+                        <div class="form-group">
+                            <label for="addTime">First Train Time (HH:MM military time)</label>
+                            <input type="text" class="form-control" id="addTime" placeholder="17:30">
+                        </div>
+                        <div class="form-group">
+                            <label for="addFreq">Frequency (min)</label>
+                            <input type="number" class="form-control" id="addFreq" placeholder="60">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="addTrain">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript links -->
+    <div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
+        
+        <!-- Momont CDN for times-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+        <script src="assets/javascript/navbar.js"></script>
+        <script src="assets/javascript/app.js"></script>
+    </div>
+
+</body>
+</html>

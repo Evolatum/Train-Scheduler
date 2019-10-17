@@ -33,9 +33,13 @@ $("#addTrain").on("click", function(event) {
 
 trainsRef.on("child_added", function(snapshot) {
     var sv = snapshot.val();
-    console.log(sv.time);
-    var minutesAway = sv.freq - (moment().diff(moment(sv.time, "HH:mm"),"minutes") % sv.freq);
-    var nextArrival = moment(moment().add(minutesAway,"minutes")).format("HH:mm");
+    if(moment().diff(moment(sv.time, "HH:mm"),"minutes") > 0){
+        var minutesAway = sv.freq - (moment().diff(moment(sv.time, "HH:mm"),"minutes") % sv.freq);
+        var nextArrival = moment(moment().add(minutesAway,"minutes")).format("HH:mm");
+    }else{
+        var minutesAway = -moment().diff(moment(sv.time, "HH:mm"),"minutes") + 1;
+        var nextArrival = sv.time;
+    }
 
     $("#trainsHere").append(`
     <tr>
@@ -49,10 +53,3 @@ trainsRef.on("child_added", function(snapshot) {
 }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
-
-function workedTime(stamp){
-    console.log(stamp);
-    console.log(moment(stamp));
-    console.log(moment().format("DD[/]MM[/]YYYY"));
-    return stamp;
-}

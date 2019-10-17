@@ -61,9 +61,9 @@ var appEngine = {
         <tr>
             <td>${sv.name}</td>
             <td>${sv.destination}</td>
-            <td>${sv.freq} min</td>
+            <td>${sv.freq<60?sv.freq+" min":Math.round(sv.freq/60*10)/10+" hr"}</td>
             <td>${nextArrival}</td>
-            <td>${minutesAway}</td>
+            <td>${minutesAway<60?minutesAway+" min":Math.round(minutesAway/60*10)/10+" hr"}</td>
         </tr>`);
     }
 }

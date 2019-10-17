@@ -1,7 +1,20 @@
+/* Background pattern from Toptal Subtle Patterns */
+body{
+    background-image: url(../images/micro_carbon/micro_carbon_@2X.png);
+    background-color: black;
+    font-family: 'Source Code Pro', sans-serif;
+}
+
 .main{
     margin-top:4.5rem;
 }
 
 .jumbotron{
     padding:1rem;
+}
+
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url(../fonts/GoogleFonts/Source_Code_Pro/SourceCodePro-Regular.ttf);
 }

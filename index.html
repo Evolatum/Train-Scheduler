@@ -14,45 +14,48 @@
     
     <div class="container-fluid main">
         <div class="row">
-            <div class="col-8">
-                <div class="jumbotron">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Train Name</th>
-                                <th scope="col">Destination</th>
-                                <th scope="col">Frequency</th>
-                                <th scope="col">Next Arrival</th>
-                                <th scope="col">Time Away</th>
-                            </tr>
-                        </thead>
-                        <tbody id="trainsHere">
-                        </tbody>
-                    </table>
+            <div class="col-lg-8 col-12">
+                <div class="jumbotron bg-dark">
+                    <h2 class="text-light">Train Departures</h2>
+                    <div class="table-responsive">
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Time Away</th>
+                                </tr>
+                            </thead>
+                            <tbody id="trainsHere">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-4">
-                <div class="jumbotron">
+            <div class="col-lg-4 col-12">
+                <div class="jumbotron bg-dark text-light">
                     <form>
                         <h4>Add Train</h4>
                         <div class="form-group">
                             <label for="addName">Train Name</label>
-                            <input type="text" class="form-control" id="addName" placeholder="Blue Express">
+                            <input type="text" class="form-control bg-dark text-light" id="addName" placeholder="Blue Express">
                         </div>
                         <div class="form-group">
                             <label for="addDestination">Destination</label>
-                            <input type="text" class="form-control" id="addDestination" placeholder="Cherryshire">
+                            <input type="text" class="form-control bg-dark text-light" id="addDestination" placeholder="Cherryshire">
                         </div>
                         <div class="form-group">
                             <label for="addTime">First Train Time (HH:MM military time)</label>
-                            <input type="text" class="form-control" id="addTime" placeholder="17:30">
+                            <input type="text" class="form-control bg-dark text-light" id="addTime" placeholder="17:30">
                         </div>
                         <div class="form-group">
                             <label for="addFreq">Frequency (min)</label>
-                            <input type="number" class="form-control" id="addFreq" placeholder="60">
+                            <input type="number" class="form-control bg-dark text-light" id="addFreq" placeholder="60">
                         </div>
-                        <button type="submit" class="btn btn-primary" id="addTrain">Submit</button>
+                        <button type="submit" class="btn btn-secondary" id="addTrain">Submit</button>
                     </form>
                 </div>
             </div>
@@ -62,7 +65,7 @@
     <!-- Error adding train modal -->
     <div class="modal fade" id="errorTrain" tabindex="-1" role="dialog" aria-labelledby="errorTrain" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content bg-dark text-light">
                 <div class="modal-header">
                     <h5 class="modal-title">Error adding train</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

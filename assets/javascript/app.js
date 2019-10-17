@@ -58,23 +58,48 @@ var appEngine = {
         }
     
         $("#trainsHere").append(`
-        <tr>
+        <tr class="train" data-time="${sv.time}">
             <td>${sv.name}</td>
             <td>${sv.destination}</td>
-            <td>${sv.freq<60?sv.freq+" min":Math.round(sv.freq/60*10)/10+" hr"}</td>
+            <td data-freq="${sv.freq}">${sv.freq<60?sv.freq+" min":Math.round(sv.freq/60*10)/10+" hr"}</td>
             <td>${nextArrival}</td>
             <td>${minutesAway<60?minutesAway+" min":Math.round(minutesAway/60*10)/10+" hr"}</td>
         </tr>`);
-    }
+    },
+
+    //Updates the time remaining and next arrival of all trains
+    updateTrains:function(){
+        $(".train").each(function(){
+            var currentElement = $(this);
+            var time = currentElement.data("time");
+            var freq = currentElement.children().eq(2).data("freq");
+
+            if(moment().diff(moment(time, "HH:mm"),"minutes") > 0){
+                var minutesAway = freq - (moment().diff(moment(time, "HH:mm"),"minutes") % freq);
+                var nextArrival = moment(moment().add(minutesAway,"minutes")).format("hh:mm a");
+            }else{
+                var minutesAway = -moment().diff(moment(time, "HH:mm"),"minutes") + 1;
+                var nextArrival = moment(time, "HH:mm").format("hh:mm a");
+            }
+
+            currentElement.children().eq(3).text(nextArrival);
+            currentElement.children().eq(4).text(minutesAway<60?minutesAway+" min":Math.round(minutesAway/60*10)/10+" hr");
+        });
+    },
 }
 
+//Receives click of button
 $("#addTrain").on("click", function(event) {
     event.preventDefault();
     appEngine.addTrain();
 });
 
+//Checks if any train has been added to database, and sends them appEngine to display
 trainsRef.on("child_added", function(snapshot) {
     appEngine.displayTrain(snapshot.val());
 }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
+
+//Calls to update trains every 6 seconds
+var timerID = setInterval(appEngine.updateTrains, 6 * 1000); 
